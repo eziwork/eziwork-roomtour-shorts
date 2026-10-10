@@ -11,12 +11,15 @@ import { join } from "node:path";
 const dir = process.argv[2] || ".";
 const spec = JSON.parse(readFileSync(join(dir, "spec.json"), "utf8"));
 
+// diary accent gradients. Four distinct hues, no pink, readable on bright and dark rooms.
 const PALETTES = {
-  lilac: ["#ffb3dc", "#b9a2ff"], // reference look: pink -> lavender
-  peach: ["#ffc59e", "#ff9fb2"],
-  mint: ["#a8f0d8", "#9cc8ff"],
-  butter: ["#fff1a6", "#ffc89c"],
+  purple: ["#a98bff", "#5527d8"], // default: lavender -> deep violet
+  sky: ["#d8f0ff", "#4f95f5"], // pale sky -> clear blue
+  sage: ["#e3f5d9", "#5fae7a"], // pale sage -> green
+  cream: ["#fff3d2", "#e0a73f"], // cream -> gold
 };
+// older palette names still work
+const PALETTE_ALIASES = { lilac: "purple", peach: "cream", butter: "cream", mint: "sage" };
 
 const PRE = (w, file) => ({ family: "Pretendard", file: `assets/fonts/${file}`, weight: w, format: "woff2" });
 const STYLES = {
@@ -68,7 +71,8 @@ const STYLES = {
 const styleName = spec.style || "diary";
 if (!STYLES[styleName]) throw new Error(`unknown style "${styleName}" (diary | vlog | quiz | luxe)`);
 const style = { ...STYLES[styleName], ...(spec.styleOverrides || {}) };
-const [accentFrom, accentTo] = PALETTES[spec.palette || "lilac"] || PALETTES.lilac;
+const paletteName = PALETTE_ALIASES[spec.palette] || spec.palette || "purple";
+const [accentFrom, accentTo] = PALETTES[paletteName] || PALETTES.purple;
 const D = spec.duration;
 const intro = spec.intro;
 const introEnd = intro.end;
@@ -94,6 +98,7 @@ const lines = (arr, cls) => arr.map((l) => `<p class="${cls}">${rich(l)}</p>`).j
 
 // ---- validation: catch the mistakes that otherwise only show up in a render ----
 const warnings = [];
+if (spec.palette && !PALETTES[paletteName]) warnings.push(`palette "${spec.palette}" unknown; using purple (purple | sky | sage | cream)`);
 if (!existsSync(join(dir, spec.src))) warnings.push(`source video not found: ${spec.src}`);
 for (const f of style.fonts) if (!existsSync(join(dir, f.file))) warnings.push(`font not found: ${f.file} (copy <skill>/assets/fonts/* into assets/fonts/)`);
 // Visual width in "full characters": spaces and ASCII punctuation are about half a Hangul glyph wide.
@@ -227,8 +232,8 @@ const STICKERS = {
   arrow: (c) => `<svg viewBox="0 0 60 40"><path d="M6 8 C 10 30, 34 36, 52 26" fill="none" stroke="${c}" stroke-width="4" stroke-linecap="round"/><path d="M44 20 L53 26 L43 32" fill="none" stroke="${c}" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
 };
 function vlog() {
-  const P = { hot: "#ff6a3d", sun: "#ffd447", pink: "#ff8fb8", glow: "#8fa8ff", deep: "#2f5d4f", tape: "#f1e2bf", ...(spec.vlogPalette || {}) };
-  const colorOf = (k) => P[k] || k;
+  const P = { hot: "#ff6a3d", sun: "#ffd447", violet: "#8a63ff", glow: "#8fa8ff", deep: "#2f5d4f", tape: "#f1e2bf", ...(spec.vlogPalette || {}) };
+  const colorOf = (k) => P[k === "pink" ? "violet" : k] || k; // "pink" from older specs maps to violet
   // text -> per-character spans for the typing reveal; *word* becomes an accent run
   const typed = (line, accent) =>
     String(line)
@@ -255,7 +260,7 @@ function vlog() {
     const tilt = it.tilt ?? { react: -4, note: -2.5, ask: 2 }[tone] ?? 0;
     const accent = colorOf(it.accent || (tone === "say" ? "sun" : tone === "explain" ? "sun" : "hot"));
     const sticker = it.sticker === "none" ? null : it.sticker || { react: "burst", info: null, ask: null }[tone] || null;
-    const stColor = colorOf(it.stickerColor || (sticker === "heart" ? "pink" : sticker === "burst" ? "sun" : "#ffffff"));
+    const stColor = colorOf(it.stickerColor || (sticker === "heart" ? "hot" : sticker === "burst" ? "sun" : "#ffffff"));
     let inner;
     if (tone === "info" || tone === "highlight") {
       inner = it.lines.map((l) => `<span class="box">${typed(l, tone === "info" ? colorOf("hot") : colorOf("sun"))}</span>`).join("");

@@ -5,7 +5,7 @@
 ```json
 {
   "style": "diary",
-  "palette": "lilac",
+  "palette": "purple",
   "src": "assets/source.mp4",
   "duration": 20,
   "volume": 1,
@@ -27,7 +27,7 @@
 | 필드 | 설명 |
 |---|---|
 | `style` | `diary` (현재 유일한 스타일) |
-| `palette` | 강조 그라데이션: `lilac`(기본) `peach` `mint` `butter` |
+| `palette` | diary 강조 그라데이션: `purple`(기본) `sky` `sage` `cream` |
 | `src` | 프로젝트 기준 영상 경로. `new_project.py`가 `assets/source.mp4`로 복사한다 |
 | `duration` | 전체 길이(초). 원본 길이(`analysis/probe.txt`의 duration)를 내림한 값 |
 | `volume` | 원본 소리 볼륨 0~1. 기본 1 |
@@ -74,11 +74,11 @@
 | `captions[].pos` | `top` `upper` `mid` `low`. 생략하면 tone별 기본 위치 |
 | `captions[].tilt` | 기울기(도). 생략하면 react -4, note -2.5, ask 2 |
 | `captions[].sticker` | `sparkle` `heart` `star` `burst` `arrow` `none` |
-| `captions[].color` | react 글자색: `hot` `sun` `pink` 또는 색 코드 |
+| `captions[].color` | react 글자색: `hot` `sun` `violet` 또는 색 코드 |
 | `captions[].title` | `true`면 이 자막 동안 제목 박스를 위에 작게 다시 띄운다 |
 | `intro.lines` | 흰 박스 제목(줄당 11자). `intro.say`는 그 아래 손글씨 한두 줄 |
 | `outro.lines` / `outro.say` | 끝 카드의 흰 박스 줄 / 아래 손글씨 한 줄 |
-| `vlogPalette` | `{ "hot": "#ff6a3d", "sun": "#ffd447", "pink": "#ff8fb8", "glow": "#8fa8ff", "deep": "#2f5d4f", "tape": "#f1e2bf" }` 중 바꿀 것만 |
+| `vlogPalette` | `{ "hot": "#ff6a3d", "sun": "#ffd447", "violet": "#8a63ff", "glow": "#8fa8ff", "deep": "#2f5d4f", "tape": "#f1e2bf" }` 중 바꿀 것만 |
 
 vlog에서는 `room`, `badge`를 보통 쓰지 않는다(레퍼런스에 없음). 예시: `examples/04-vlog.spec.json`.
 
