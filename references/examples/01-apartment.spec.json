@@ -1,0 +1,15 @@
+{
+  "style": "diary",
+  "src": "assets/source.mp4",
+  "duration": 20,
+  "intro": { "start": 0, "end": 2.9, "top": "korea", "lines": ["탁 트인 단지뷰", "아파트", "랜선집구경"], "bottom": "roomtour!" },
+  "captions": [
+    { "start": 2.9, "end": 5.3, "lines": ["안녕하세요 오늘은", "단지뷰 아파트 룸투어를 해보려합니다"] },
+    { "start": 5.3, "end": 7.7, "kind": "label", "lines": ["거실", "+석재 아트월"] },
+    { "start": 7.7, "end": 10.0, "lines": ["거실이 넓게 빠져서", "개방감이 아주 좋았어요"] },
+    { "start": 10.0, "end": 12.3, "lines": ["창밖으로는 단지뷰가", "시원하게 펼쳐져요"] },
+    { "start": 12.3, "end": 15.3, "kind": "label", "lines": ["주방", "+다이닝 공간"] },
+    { "start": 15.3, "end": 17.8, "lines": ["복도를 따라", "방이 분리된 구조예요"] },
+    { "start": 17.8, "end": 20, "lines": ["랜선집구경 끝!", "구경해주셔서 감사합니다 :)"] }
+  ]
+}

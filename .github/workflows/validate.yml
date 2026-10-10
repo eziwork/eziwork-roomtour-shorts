@@ -1,0 +1,32 @@
+name: Self test
+on: [push, pull_request, workflow_dispatch]
+jobs:
+  selftest:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install ffmpeg (Windows)
+        if: runner.os == 'Windows'
+        run: choco install ffmpeg -y --no-progress
+      - name: Install ffmpeg (macOS)
+        if: runner.os == 'macOS'
+        run: brew install ffmpeg
+      - run: python scripts/doctor.py
+      - run: python scripts/doctor.py --install
+      - run: python scripts/selftest.py selftest-out
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: selftest-${{ runner.os }}
+          path: selftest-out/**/renders/*.mp4
+          if-no-files-found: ignore

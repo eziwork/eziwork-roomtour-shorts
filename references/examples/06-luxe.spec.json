@@ -1,0 +1,65 @@
+{
+ "style": "luxe",
+ "src": "assets/source.mp4",
+ "duration": 20,
+ "brand": "OO Realty",
+ "contact": "문의 010-0000-0000",
+ "intro": {
+  "start": 0,
+  "end": 3.0,
+  "top": "Room Tour",
+  "lines": [
+   "리버뷰 아파트"
+  ]
+ },
+ "captions": [
+  {
+   "start": 3.0,
+   "end": 7.0,
+   "room": "현관",
+   "en": "Entrance",
+   "lines": [
+    "간접조명 복도"
+   ]
+  },
+  {
+   "start": 7.0,
+   "end": 11.0,
+   "room": "거실",
+   "en": "Living",
+   "lines": [
+    "리버뷰 통창"
+   ]
+  },
+  {
+   "start": 11.0,
+   "end": 15.0,
+   "lines": [
+    "해 질 녘의 거실"
+   ]
+  },
+  {
+   "start": 15.0,
+   "end": 20,
+   "room": "주방",
+   "en": "Kitchen",
+   "lines": [
+    "대리석 아일랜드"
+   ]
+  }
+ ],
+ "outro": {
+  "hold": 2.5,
+  "top": "Private Viewing",
+  "lines": [
+   "방문 예약은 DM으로"
+  ]
+ },
+ "bgm": {
+  "src": "assets/bgm.mp3",
+  "credit": "Music: \"Feeling - Piano Instrumental\" by E. Erkut (CC BY 3.0) https://www.jamendo.com/track/1320222",
+  "license": "by",
+  "source": "https://www.jamendo.com/track/1320222",
+  "offset": 3
+ }
+}

@@ -1,0 +1,120 @@
+{
+ "style": "vlog",
+ "src": "assets/source.mp4",
+ "duration": 20,
+ "intro": {
+  "start": 0,
+  "end": 2.6,
+  "lines": [
+   "고층 *단지뷰*",
+   "아파트"
+  ],
+  "say": [
+   "뷰 좋은 집 찾으시면",
+   "끝까지 보세요"
+  ]
+ },
+ "captions": [
+  {
+   "start": 2.6,
+   "end": 4.6,
+   "tone": "say",
+   "lines": [
+    "중문 열자마자",
+    "거실이 쭉 보이는데요"
+   ],
+   "say": ""
+  },
+  {
+   "start": 4.6,
+   "end": 6.6,
+   "tone": "react",
+   "color": "hot",
+   "sticker": "burst",
+   "lines": [
+    "와 이 벽 뭐에요.."
+   ],
+   "say": "와.. 이 벽 보세요"
+  },
+  {
+   "start": 6.6,
+   "end": 8.8,
+   "tone": "note",
+   "lines": [
+    "아트월이 돌로 돼있어서",
+    "TV 걸어놔도 *고급짐*"
+   ],
+   "say": ""
+  },
+  {
+   "start": 8.8,
+   "end": 10.6,
+   "tone": "ask",
+   "lines": [
+    "소파 놔도",
+    "자리 남는거 보이시죠?"
+   ],
+   "say": ""
+  },
+  {
+   "start": 10.6,
+   "end": 12.6,
+   "tone": "explain",
+   "title": true,
+   "lines": [
+    "창밖이 이렇게",
+    "*뻥* 뚫려있어요"
+   ],
+   "say": "창밖이 그냥 뻥 뚫려있어요"
+  },
+  {
+   "start": 12.6,
+   "end": 14.4,
+   "tone": "say",
+   "lines": [
+    "식탁 바로 옆이",
+    "주방이에요"
+   ],
+   "say": ""
+  },
+  {
+   "start": 14.4,
+   "end": 16.4,
+   "tone": "info",
+   "lines": [
+    "양문형 냉장고 들어가고",
+    "수납장 위아래로 *꽉*"
+   ],
+   "say": "냉장고에 수납장까지 꽉 찼어요"
+  },
+  {
+   "start": 16.4,
+   "end": 18.3,
+   "tone": "highlight",
+   "lines": [
+    "복도 따라 방이",
+    "쭉 나눠져있는 구조에요"
+   ],
+   "say": ""
+  },
+  {
+   "start": 18.3,
+   "end": 20,
+   "tone": "react",
+   "color": "sun",
+   "sticker": "sparkle",
+   "lines": [
+    "붙박이장까지..?"
+   ],
+   "say": "이런 집은 얼마일까요?"
+  }
+ ],
+ "outro": {
+  "hold": 2.5,
+  "lines": [
+   "이런 집은",
+   "얼마일까요??"
+  ],
+  "say": "다음엔 어떤 집 가볼까요~"
+ }
+}

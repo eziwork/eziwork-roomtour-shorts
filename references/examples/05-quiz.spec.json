@@ -1,0 +1,89 @@
+{
+ "style": "quiz",
+ "src": "assets/source.mp4",
+ "duration": 20,
+ "intro": {
+  "start": 0,
+  "end": 2.6,
+  "lines": [
+   "신림동 원룸",
+   "월세 *얼마*일까요?"
+  ],
+  "bottom": "끝까지 보면 공개!",
+  "say": "신림동 원룸, 월세 얼마일까요?"
+ },
+ "captions": [
+  {
+   "start": 2.6,
+   "end": 9.6,
+   "room": "주방·거실",
+   "tags": [
+    "싱크대",
+    "큰 창"
+   ],
+   "lines": [
+    "주방이랑 거실이 한 공간"
+   ],
+   "say": "주방이랑 거실이 한 공간이고요"
+  },
+  {
+   "start": 9.6,
+   "end": 13.6,
+   "room": "창",
+   "tags": [
+    "방범창"
+   ],
+   "say": ""
+  },
+  {
+   "start": 13.6,
+   "end": 17.6,
+   "room": "방",
+   "tags": [
+    "분리형"
+   ],
+   "lines": [
+    "방은 따로 분리돼 있어요"
+   ],
+   "say": "방은 따로 분리돼 있어요"
+  },
+  {
+   "start": 17.6,
+   "end": 20,
+   "room": "욕실",
+   "tags": [
+    "샤워기"
+   ],
+   "say": "정답 공개! 보증금 오백에 월세 삼십오만 원!"
+  }
+ ],
+ "reveal": {
+  "at": 17.7,
+  "lines": [
+   "보증금 500 / 월세 35"
+  ]
+ },
+ "agency": {
+  "name": "OO공인중개사사무소",
+  "owner": "OOO",
+  "reg": "제00000-0000-00000호",
+  "phone": "010-0000-0000"
+ },
+ "outro": {
+  "hold": 2.5,
+  "top": "이 집은",
+  "big": [
+   "월세 35"
+  ],
+  "lines": [
+   "보증금 500 · 신림동 원룸"
+  ],
+  "cta": "문의는 DM"
+ },
+ "bgm": {
+  "src": "assets/bgm.mp3",
+  "credit": "Music: \"The Corporate Upbeat\" by Soundrider/Dope (CC BY 3.0) https://www.jamendo.com/track/1670594",
+  "license": "by",
+  "source": "https://www.jamendo.com/track/1670594"
+ }
+}

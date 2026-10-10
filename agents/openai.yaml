@@ -1,0 +1,6 @@
+interface:
+  display_name: "Roomtour Shorts"
+  short_description: "룸투어 영상을 버전별 자막·목소리·배경음이 들어간 부동산 릴스로"
+  default_prompt: "Use $roomtour-shorts to turn this walkthrough video into a 1080x1920 Korean real-estate reel."
+policy:
+  allow_implicit_invocation: true
