@@ -1,5 +1,29 @@
 # Windows · macOS 설치
 
+## 가장 쉬운 방법: 한 줄 설치
+
+준비물(아래 1번)을 설치한 뒤 한 줄만 실행합니다. 스킬 받기, 폴더 배치, 점검, 무료 음성 엔진 설치까지 한 번에 합니다.
+
+Windows PowerShell:
+```powershell
+powershell -ExecutionPolicy Bypass -c "irm https://raw.githubusercontent.com/eziwork/eziwork-roomtour-shorts/main/install.ps1 | iex"
+```
+
+macOS 터미널:
+```sh
+curl -fsSL https://raw.githubusercontent.com/eziwork/eziwork-roomtour-shorts/main/install.sh | bash
+```
+
+| 바꾸고 싶을 때 | Windows (실행 전에) | macOS (명령 앞에) |
+|---|---|---|
+| Claude Code에 설치 | `$env:ROOMTOUR_DEST="$env:USERPROFILE\.claude\skills\roomtour-shorts"` | `ROOMTOUR_DEST=~/.claude/skills/roomtour-shorts` |
+| 음성 엔진 건너뛰기 | `$env:ROOMTOUR_NO_VOICE="1"` | `ROOMTOUR_NO_VOICE=1` |
+| 특정 버전 설치 | `$env:ROOMTOUR_REF="v1.1.0"` | `ROOMTOUR_REF=v1.1.0` |
+
+git이 없어도 됩니다. [Releases](https://github.com/eziwork/eziwork-roomtour-shorts/releases)의 `roomtour-shorts-*.zip`을 받아 압축을 풀면 이미 `roomtour-shorts` 폴더라서, 그대로 스킬 폴더에 넣고 2번 아래 명령(점검·설치)만 실행해도 됩니다.
+
+아래는 손으로 설치하는 방법입니다.
+
 ## 1. 준비물
 
 | 프로그램 | Windows (PowerShell) | macOS (터미널) |

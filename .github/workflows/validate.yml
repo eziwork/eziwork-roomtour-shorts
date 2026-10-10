@@ -30,3 +30,38 @@ jobs:
           name: selftest-${{ runner.os }}
           path: selftest-out/**/renders/*.mp4
           if-no-files-found: ignore
+  one-line-install:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    env:
+      ROOMTOUR_REF: ${{ github.sha }}
+      ROOMTOUR_NO_VOICE: '1'
+    steps:
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install ffmpeg (Windows)
+        if: runner.os == 'Windows'
+        run: choco install ffmpeg -y --no-progress
+      - name: Install ffmpeg (macOS)
+        if: runner.os == 'macOS'
+        run: brew install ffmpeg
+      - name: One-line install (Windows PowerShell 5.1, as in README)
+        if: runner.os == 'Windows'
+        shell: powershell
+        run: |
+          $env:ROOMTOUR_DEST = "$env:RUNNER_TEMP\skills\roomtour-shorts"
+          irm "https://raw.githubusercontent.com/${{ github.repository }}/${{ github.sha }}/install.ps1" | iex
+          python "$env:ROOMTOUR_DEST\scripts\selftest.py" "$env:RUNNER_TEMP\st" --no-voice --no-render
+      - name: One-line install (macOS, as in README)
+        if: runner.os == 'macOS'
+        run: |
+          export ROOMTOUR_DEST="$RUNNER_TEMP/skills/roomtour-shorts"
+          curl -fsSL "https://raw.githubusercontent.com/${{ github.repository }}/${{ github.sha }}/install.sh" | bash
+          python3 "$ROOMTOUR_DEST/scripts/selftest.py" "$RUNNER_TEMP/st" --no-voice --no-render
